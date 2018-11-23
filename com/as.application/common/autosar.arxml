@@ -21,20 +21,10 @@
 <ApplicationMode Comment="*" Name="OSDEFAULTAPPMODE" />
 </ApplicationModeList>
 </Task>
-<Task Activation="1" Application="OsDefaultApp" Autostart="False" Comment="*" Name="TASK3" Priority="8" Schedule="FULL" StackSize="2048">
-<ApplicationModeList Max="TBD">
-<ApplicationMode Comment="*" Name="OSDEFAULTAPPMODE" />
-</ApplicationModeList>
-</Task>
 </TaskList>
 <AlarmList Max="TBD">
 <Alarm Action="ActivateTask" Application="OsDefaultApp" Autostart="False" Callback="TBD" Comment="*" Counter="OsClock" Event="TBD" Name="Alarm_BswService" Period="100" StartTime="0" Task="SchM_BswService" />
-<Alarm Action="ActivateTask" Application="OsDefaultApp" Autostart="Absolute" Callback="TBD" Comment="*" Counter="OsClock" Event="TBD" Name="Alarm_TASK2" Period="6000" StartTime="5" Task="TASK2">
-<ApplicationModeList Max="TBD">
-<ApplicationMode Comment="*" Name="OSDEFAULTAPPMODE" />
-</ApplicationModeList>
-</Alarm>
-<Alarm Action="ActivateTask" Application="OsDefaultApp" Autostart="Absolute" Callback="TBD" Comment="*" Counter="OsClock" Event="TBD" Name="Alarm_TASK3" Period="6000" StartTime="1" Task="TASK3">
+<Alarm Action="ActivateTask" Application="OsDefaultApp" Autostart="Absolute" Callback="TBD" Comment="*" Counter="OsClock" Event="TBD" Name="Alarm_TASK2" Period="100" StartTime="5" Task="TASK2">
 <ApplicationModeList Max="TBD">
 <ApplicationMode Comment="*" Name="OSDEFAULTAPPMODE" />
 </ApplicationModeList>
@@ -123,7 +113,7 @@
 <Pdu Comment="*" DataLengthCode="1" EcuCPduRef="RX_J1939TP_DT" FilterMask="0x7FF" HrhRef="LS_Hrh" Identifier="0x752" Name="RX_J1939TP_DT" ReceivedNotifier="J1939Tp" UserNotification="CanIf_UserRxIndication" />
 <Pdu Comment="*" DataLengthCode="1" EcuCPduRef="RX_J1939TP_CM" FilterMask="0x7FF" HrhRef="LS_Hrh" Identifier="0x753" Name="RX_J1939TP_CM" ReceivedNotifier="J1939Tp" UserNotification="CanIf_UserRxIndication" />
 <Pdu Comment="*" DataLengthCode="1" EcuCPduRef="RX_J1939TP_DIRECT" FilterMask="0x7FF" HrhRef="LS_Hrh" Identifier="0x754" Name="RX_J1939TP_DIRECT" ReceivedNotifier="J1939Tp" UserNotification="CanIf_UserRxIndication" />
-<Pdu Comment="*" DataLengthCode="1" EcuCPduRef="RxMsgLedInfo" FilterMask="0x7FF" HrhRef="LS_Hrh" Identifier="0x102" Name="LedInfo" ReceivedNotifier="PduR" UserNotification="CanIf_UserRxIndication" />
+<Pdu Comment="*" DataLengthCode="8" EcuCPduRef="RxMsgLedInfo" FilterMask="0x7FF" HrhRef="LS_Hrh" Identifier="0x106" Name="LedInfo" ReceivedNotifier="PduR" UserNotification="CanIf_UserRxIndication" />
 </RxPduList>
 </Channel>
 </ChannelList>
@@ -229,9 +219,9 @@
 <Signal Comment="*" Endianess="BIG_ENDIAN" FirstTimeoutFactor="500" InitialValue="0" Name="Led4Sts" ReceivedNotification="NULL" Size="2" StartBit="33" TimeoutAction="NONE" TimeoutFactor="200" TimeoutNotification="NULL" TransferProperty="PENDING" Type="uint8" UpdateBitPosition="TBD" UpdateBitUsed="False" />
 </SignalList>
 </IPdu>
-<IPdu Callout="NULL" Comment="*" DefaultValueForUnusedArea="0x5A" Direction="RECEIVE" Name="LedInfo" NumberOfRepetions="0" PduGroupRef="PduGroup1" PduRef="RxMsgLedInfo" RepetionsPeriodFactor="10" RxSignalProcessing="DEFERRED" TimeOffsetFactor="0" TimePeriodFactor="10" TxMinimumDelayFactor="1" TxMode="PERIODIC">
+<IPdu Callout="NULL" Comment="*" DefaultValueForUnusedArea="0x5A" Direction="RECEIVE" Name="LedInfoIpdu" NumberOfRepetions="0" PduGroupRef="PduGroup1" PduRef="RxMsgLedInfo" RepetionsPeriodFactor="10" RxSignalProcessing="DEFERRED" TimeOffsetFactor="0" TimePeriodFactor="10" TxMinimumDelayFactor="1" TxMode="PERIODIC">
 <SignalList Max="TBD">
-<Signal Comment="*" Endianess="BIG_ENDIAN" FirstTimeoutFactor="500" InitialValue="1" Name="LED1" ReceivedNotification="NULL" Size="2" StartBit="31" TimeoutAction="NONE" TimeoutFactor="500" TimeoutNotification="NULL" TransferProperty="PENDING" Type="uint8" UpdateBitPosition="TBD" UpdateBitUsed="False" />
+<Signal Comment="*" Endianess="BIG_ENDIAN" FirstTimeoutFactor="500" InitialValue="1" Name="LED2" ReceivedNotification="NULL" Size="8" StartBit="31" TimeoutAction="NONE" TimeoutFactor="500" TimeoutNotification="NULL" TransferProperty="PENDING" Type="uint8" UpdateBitPosition="TBD" UpdateBitUsed="False" />
 </SignalList>
 </IPdu>
 </IPduList>
